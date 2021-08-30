@@ -29,9 +29,9 @@ class Approval(models.Model):
         ('Semiurban', 'Semiurban'),
         ('Urban', 'Urban')
     )
-    # First_name = models.CharField(max_length=50)
-    # Last_name = models.CharField(max_length=50)
-    # Email = models.EmailField()
+    First_name = models.CharField(max_length=50)
+    Last_name = models.CharField(max_length=50)
+    Email = models.EmailField()
     Dependents = models.PositiveIntegerField()
     ApplicantIncome = models.PositiveIntegerField()
     CoapplicantIncome = models.PositiveIntegerField()
