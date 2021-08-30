@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'loanway_app'
+    'loanway_app',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [

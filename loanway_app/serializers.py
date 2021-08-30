@@ -6,3 +6,4 @@ class ApprovalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Approval
         fields = '__all__'
+        

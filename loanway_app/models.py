@@ -1,4 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+
+# for user in User.objects.all():
+#     Token.objects.get_or_create(user=user)
 
 # Create your models here.
 
@@ -13,7 +18,7 @@ class Approval(models.Model):
     )
     GRADUATED_CHOICES = (
         ('Graduate', 'Graduated'),
-        ('Not_Graduate', 'Not_Graduated')
+        ('Not Graduate', 'Not_Graduated')
     )
     SELFEMPLOYED_CHOICES = (
         ('Yes', 'yes'),
@@ -22,11 +27,11 @@ class Approval(models.Model):
     PROPERTY_CHOICES = (
         ('Rural', 'Rural'),
         ('Semiurban', 'Semiurban'),
-        ('urban', 'Urban')
+        ('Urban', 'Urban')
     )
-    First_name = models.CharField(max_length=50)
-    Last_name = models.CharField(max_length=50)
-    Email = models.EmailField()
+    # First_name = models.CharField(max_length=50)
+    # Last_name = models.CharField(max_length=50)
+    # Email = models.EmailField()
     Dependents = models.PositiveIntegerField()
     ApplicantIncome = models.PositiveIntegerField()
     CoapplicantIncome = models.PositiveIntegerField()
@@ -42,4 +47,4 @@ class Approval(models.Model):
 
 
     def __str__(self):
-        return f"{self.First_name} {self.Last_name}'s loan application"
+        return f"{self.id}'s loan application"
