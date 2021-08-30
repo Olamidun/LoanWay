@@ -56,14 +56,13 @@ def approve_or_reject_loan(request):
     applicants_data['Total_Income_Log'] = numpy.log(applicants_data['Total_Income'])
     applicants_data = applicants_data.drop(['ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term'], axis=1)
     
-    print(ohe_value(applicants_data))
-    print(applicants_data)
+    applicants_data = ohe_value(applicants_data)
 
     prediction = loan_model.predict(applicants_data)
     print(prediction)
     value = pandas.DataFrame(prediction, columns=['status'])
     value = value.replace({1: "Your Loan has been approved, congratulations!", 0: "Sorry! We cannot approve your loan at this time"})
-    return Response("Just wait")
+    return Response(value)
 
 
 class CheckEligibilty(generics.CreateAPIView):
