@@ -31,7 +31,8 @@ class Approval(models.Model):
     )
     First_name = models.CharField(max_length=50)
     Last_name = models.CharField(max_length=50)
-    Email = models.EmailField()
+    Email = models.EmailField(unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     Dependents = models.PositiveIntegerField()
     ApplicantIncome = models.PositiveIntegerField()
     CoapplicantIncome = models.PositiveIntegerField()
@@ -44,6 +45,7 @@ class Approval(models.Model):
     Self_Employed = models.CharField(max_length = 10, choices=SELFEMPLOYED_CHOICES)
     Property_Area = models.CharField(max_length=20, choices=PROPERTY_CHOICES)
     date_applied = models.DateTimeField(auto_now_add=True)
+    eligible_for_loan = models.BooleanField(default=False)
 
 
     def __str__(self):
