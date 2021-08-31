@@ -215,6 +215,3 @@ If a user hasn't checked for their eligibility to apply for loan, the endpoint r
     "detail": "Not found."
   }
  ```
-  
-  
- 
