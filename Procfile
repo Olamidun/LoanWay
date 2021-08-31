@@ -1,1 +1,1 @@
-web: gunicorn.loanway.wsgi
+web: gunicorn loanway.wsgi
