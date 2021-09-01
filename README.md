@@ -9,7 +9,7 @@ You can clone the project directly from github by running `git clone https://git
 
 # Documentation
 The API has four endpoints:
-* The login endpoint (localhost:8000/api/auth/login) which takes in request in this form:
+* The login endpoint (loanway.herokuapp.com/api/auth/login) which takes in request in this form:
  ````json
   {
     "username": "admin",
@@ -24,7 +24,7 @@ The API has four endpoints:
  }
  ````
  
- * The check eligibility endpoint (localhost:8000/api/apply)
+ * The check eligibility endpoint (loanway.herokuapp.com/api/apply)
  The endpoint accepts only post request with the body in this format:
  ```javascript
    {  
@@ -76,7 +76,7 @@ The API has four endpoints:
  
  This endpoint requires token authentication, to authenticate, you add `Authorization: Token <token_value>` to your headers.
  
-* The next endpoint is the list applied loans endpoint (localhost:8000/api/your_applications) which accepts GET requests. This endpoint also requires token authentication and it is done as exlained above.
+* The next endpoint is the list applied loans endpoint (loanway.herokuapp.com/api/your_applications) which accepts GET requests. This endpoint also requires token authentication and it is done as exlained above.
 * The response returned by this endpoint is a list of all the loan eligibility done by the logged in user:
   ```json
   [
@@ -185,7 +185,7 @@ The API has four endpoints:
 If a user hasn't checked for their eligibility to apply for loan, the endpoint returns an empty list.
   
   
-  * The last endpoint (localhost:8000/api/your_application/<id>) accepts GET requests, it is for       retrieving a single loan eligibility details.
+  * The last endpoint (loanway.herokuapp.com/api/your_application/<id>) accepts GET requests, it is for       retrieving a single loan eligibility details.
   This endpoint also requires token authentication and it return a response like this:
   ```json
    {
