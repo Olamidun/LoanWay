@@ -8,6 +8,14 @@ from rest_framework.authtoken.models import Token
 # Create your models here.
 
 class Approval(models.Model):
+    DEPENDENTS = (
+        ('0', '0'),
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('3+', '3+'),
+
+    )
     GENDER_CHOICES = (
         ('Male', 'male'),
         ('Female', 'female')
@@ -33,7 +41,7 @@ class Approval(models.Model):
     Last_name = models.CharField(max_length=50)
     Email = models.EmailField(unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    Dependents = models.PositiveIntegerField()
+    Dependents = models.CharField(max_length=2, choices=DEPENDENTS)
     ApplicantIncome = models.PositiveIntegerField()
     CoapplicantIncome = models.PositiveIntegerField()
     LoanAmount = models.FloatField()
