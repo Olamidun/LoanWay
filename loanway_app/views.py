@@ -41,7 +41,7 @@ def approve_or_reject_loan(request):
             applicants_data['EMI'] = applicants_data['LoanAmount'] /applicants_data['Loan_Amount_Term']
             applicants_data['Balance_Income'] = applicants_data['Total_Income'] - (applicants_data['EMI'] * 100)
             applicants_data['Total_Income_Log'] = numpy.log(applicants_data['Total_Income'])
-            applicants_data = applicants_data.drop(['First_name', 'Last_name', 'Email', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term'], axis=1)
+            applicants_data = applicants_data.drop(['First_name', 'Last_name', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term'], axis=1)
             
             applicants_data = ohe_value(applicants_data)
 

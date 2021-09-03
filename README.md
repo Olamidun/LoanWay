@@ -193,7 +193,6 @@ If a user hasn't checked for their eligibility to apply for loan, the endpoint r
     "user": 1,
     "First_name": "Kolapo",
     "Last_name": "Olamidun",
-    "Email": "ooolamidun@gmail.com",
     "Dependents": 0,
     "ApplicantIncome": 100,
     "CoapplicantIncome": 500,

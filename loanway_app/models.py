@@ -39,7 +39,6 @@ class Approval(models.Model):
     )
     First_name = models.CharField(max_length=50)
     Last_name = models.CharField(max_length=50)
-    Email = models.EmailField(unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     Dependents = models.CharField(max_length=2, choices=DEPENDENTS)
     ApplicantIncome = models.PositiveIntegerField()
