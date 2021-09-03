@@ -50,7 +50,7 @@ def approve_or_reject_loan(request):
             context = serializers.data
             context['eligible_for_loan'] = value.iloc[0]['status']
             if context['eligible_for_loan'] == True:
-                approval = Approval.objects.get(Email=email)
+                approval = Approval.objects.get(id=context['id'])
                 approval.eligible_for_loan = True
                 approval.save()
             return Response(context, status=status.HTTP_201_CREATED)
