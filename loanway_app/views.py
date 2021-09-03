@@ -30,7 +30,6 @@ from django.http import JsonResponse, request
 def approve_or_reject_loan(request):
     loan_model = joblib.load("loan_model.pkl")
     applicants_data_dict = request.data
-    email = applicants_data_dict['Email']
     serializers = ApprovalSerializer(data=applicants_data_dict)
     if request.method == "POST":
         if serializers.is_valid():
