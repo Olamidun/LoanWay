@@ -30,6 +30,11 @@ from django.http import JsonResponse, request
 def approve_or_reject_loan(request):
     loan_model = joblib.load("loan_model.pkl")
     applicants_data_dict = request.data
+    applicants_data_dict['ApplicantIncome']  = applicants_data_dict['ApplicantIncome'] / 500
+    applicants_data_dict['CoapplicantIncome']  = applicants_data_dict['CoapplicantIncome'] / 500
+    applicants_data_dict['LoanAmount']  = applicants_data_dict['LoanAmount'] / 500
+
+    print(applicants_data_dict)
     serializers = ApprovalSerializer(data=applicants_data_dict)
     if request.method == "POST":
         if serializers.is_valid():
@@ -37,7 +42,7 @@ def approve_or_reject_loan(request):
             applicants_data = pandas.DataFrame(applicants_data_dict, index=[0])
             applicants_data['LoanAmount'] = numpy.log(applicants_data['LoanAmount'])
             applicants_data['Total_Income'] = applicants_data['ApplicantIncome'] + applicants_data['CoapplicantIncome']
-            applicants_data['EMI'] = applicants_data['LoanAmount'] /applicants_data['Loan_Amount_Term']
+            applicants_data['EMI'] = applicants_data['LoanAmount'] / applicants_data['Loan_Amount_Term']
             applicants_data['Balance_Income'] = applicants_data['Total_Income'] - (applicants_data['EMI'] * 100)
             applicants_data['Total_Income_Log'] = numpy.log(applicants_data['Total_Income'])
             applicants_data = applicants_data.drop(['First_name', 'Last_name', 'ApplicantIncome', 'CoapplicantIncome', 'LoanAmount', 'Loan_Amount_Term'], axis=1)
